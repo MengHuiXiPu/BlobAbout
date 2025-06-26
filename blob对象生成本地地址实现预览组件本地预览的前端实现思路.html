@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div>
+        <input type="file" name="file" id="ipt">
+
+    </div>
+    <img src="" alt="" id="img">
+</body>
+
+</html>
+
+<script>
+    const ipt = document.getElementById('ipt')
+    const img = document.getElementById('img')
+    // console.log('ipt', ipt);
+    ipt.addEventListener('change', (e) => {
+        // ipt.addEventListener('change', (e) => {
+        let file = e.target.files[0]
+        console.log(file);
+        let bl = new Blob([file], { type: file.type })
+        console.log("bl", bl)
+        let url = URL.createObjectURL(bl)
+        console.log(url);
+        img.src = url
+    })
+</script>
